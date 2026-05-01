@@ -1,0 +1,15 @@
+{
+  "name": "walrun",
+  "private": true,
+  "scripts": {
+    "build": "bunx @tailwindcss/cli -i src/css/input.css -o assets/css/output.css --minify",
+    "watch": "bunx @tailwindcss/cli -i src/css/input.css -o assets/css/output.css --watch"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tailwindcss": "^4.2.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

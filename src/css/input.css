@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+    /* Energetic & Snappy Easing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* Theme Colors */
+    --app-bg: var(--color-slate-50);
+    --app-text: var(--color-slate-900);
+    --card-bg: var(--color-white);
+    --card-border: var(--color-slate-200);
+    --muted-text: var(--color-slate-400);
+    --pill-bg: rgba(226, 232, 240, 0.5); /* slate-200/50 */
+}
+
+.dark {
+    --app-bg: var(--color-slate-950);
+    --app-text: var(--color-white);
+    --card-bg: var(--color-slate-900);
+    --card-border: var(--color-slate-800);
+    --muted-text: var(--color-slate-500);
+    --pill-bg: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+}
+
+@utility timer-border-run {
+    border-color: var(--color-emerald-500) !important;
+}
+
+@utility timer-border-walk {
+    border-color: var(--color-sky-500) !important;
+}
+
+@layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+
+    body {
+        background-color: var(--app-bg);
+        color: var(--app-text);
+        transition: background-color 0.3s var(--ease-out-quart), color 0.3s var(--ease-out-quart);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        @apply bg-emerald-600 shadow-lg border-4 border-white;
+        cursor: pointer;
+        transition: transform 0.2s var(--ease-out-expo);
+    }
+
+    input[type="range"]::-webkit-slider-thumb:active {
+        transform: scale(1.2);
+    }
+}
+
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Snappy Entrance */
+    @keyframes energetic-entrance {
+        from { transform: scale(0.95) translateY(10px); opacity: 0; }
+        to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .animate-entrance {
+        animation: energetic-entrance 0.4s var(--ease-out-expo) forwards;
+    }
+
+    /* Driven Pulse for Timer */
+    @keyframes pulse-driven {
+        0% { transform: scale(1); border-width: 8px; }
+        50% { transform: scale(1.02); border-width: 12px; }
+        100% { transform: scale(1); border-width: 8px; }
+    }
+    .animate-pulse-driven {
+        animation: pulse-driven 2s var(--ease-out-quart) infinite;
+    }
+
+    /* Alert Shake */
+    @keyframes energetic-shake {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-4px); }
+        40%, 80% { transform: translateX(4px); }
+    }
+    .animate-energetic-shake {
+        animation: energetic-shake 0.4s var(--ease-out-expo);
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
