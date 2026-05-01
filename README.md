@@ -2,7 +2,6 @@
 
 Walrun is a lightweight, privacy-focused Progressive Web App (PWA) designed to help you track your walk-run intervals. Whether you're following the Galloway method or your own custom routine, Walrun provides a clean, intuitive interface to keep you on track.
 
-![Walrun Icon](assets/walkrunicon.jpg)
 
 ## 🚀 Features
 
