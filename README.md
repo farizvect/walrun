@@ -51,7 +51,7 @@ You will need [Bun](https://bun.sh/) installed on your machine.
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/farizvect/walrun
    cd walrun
    ```
 
